@@ -1,0 +1,781 @@
+
+{
+  plugins: [
+    NamedChunksPlugin {},
+    OccurrencesPlugin {
+      options: { aot: true, scriptsOptimization: false }
+    },
+    DedupeModuleResolvePlugin {
+      options: { verbose: undefined },
+      modules: Map(0) {}
+    },
+    ProgressPlugin {
+      profile: false,
+      handler: [Function: handler],
+      modulesCount: 5000,
+      dependenciesCount: 10000,
+      showEntries: true,
+      showModules: true,
+      showDependencies: true,
+      showActiveModules: false,
+      percentBy: undefined
+    },
+    CommonJsUsageWarnPlugin {
+      options: { allowedDependencies: [] },
+      shownWarnings: Set(0) {},
+      allowedDependencies: Set(0) {}
+    },
+    CopyPlugin {
+      patterns: [
+        {
+          context: '/Users/jiangbo/code/jsbyexample/browser/angular/ng-rx/src/',
+          to: '',
+          from: 'favicon.ico',
+          noErrorOnMissing: true,
+          force: true,
+          globOptions: {
+            dot: true,
+            followSymbolicLinks: false,
+            ignore: [
+              '/Users/jiangbo/code/jsbyexample/browser/angular/ng-rx/src/.gitkeep',
+              '/Users/jiangbo/code/jsbyexample/browser/angular/ng-rx/src/**/.DS_Store',
+              '/Users/jiangbo/code/jsbyexample/browser/angular/ng-rx/src/**/Thumbs.db'
+            ]
+          },
+          priority: 0
+        },
+        {
+          context: '/Users/jiangbo/code/jsbyexample/browser/angular/ng-rx/src/assets/',
+          to: 'assets/',
+          from: '**/*',
+          noErrorOnMissing: true,
+          force: true,
+          globOptions: {
+            dot: true,
+            followSymbolicLinks: false,
+            ignore: [
+              '/Users/jiangbo/code/jsbyexample/browser/angular/ng-rx/src/assets/.gitkeep',
+              '/Users/jiangbo/code/jsbyexample/browser/angular/ng-rx/src/assets/**/.DS_Store',
+              '/Users/jiangbo/code/jsbyexample/browser/angular/ng-rx/src/assets/**/Thumbs.db'
+            ]
+          },
+          priority: 1
+        }
+      ],
+      options: {}
+    },
+    DevToolsIgnorePlugin {},
+    SourceMapDevToolPlugin {
+      sourceMapFilename: '[file].map',
+      sourceMappingURLComment: '\n//# sourceMappingURL=[url]',
+      moduleFilenameTemplate: '[resource-path]',
+      fallbackModuleFilenameTemplate: 'webpack://[namespace]/[resourcePath]?[hash]',
+      namespace: '',
+      options: {
+        filename: '[file].map',
+        include: [ /js$/, /css$/ ],
+        sourceRoot: 'webpack:///',
+        moduleFilenameTemplate: '[resource-path]',
+        append: undefined
+      }
+    },
+    AngularWebpackPlugin {
+      fileDependencies: Map(0) {},
+      requiredFilesToEmit: Set(0) {},
+      requiredFilesToEmitCache: Map(0) {},
+      fileEmitHistory: Map(0) {},
+      pluginOptions: {
+        emitClassMetadata: false,
+        emitNgModuleScope: true,
+        jitMode: false,
+        fileReplacements: {},
+        substitutions: {},
+        directTemplateLoading: true,
+        tsconfig: '/Users/jiangbo/code/jsbyexample/browser/angular/ng-rx/tsconfig.app.json',
+        compilerOptions: {
+          sourceMap: true,
+          declaration: false,
+          declarationMap: false,
+          preserveSymlinks: false
+        },
+        inlineStyleFileExtension: 'sass'
+      }
+    },
+    AnyComponentStyleBudgetChecker { budgets: [] },
+    StylesWebpackPlugin {
+      options: {
+        root: '/Users/jiangbo/code/jsbyexample/browser/angular/ng-rx',
+        entryPoints: { styles: [ 'src/styles.sass' ] },
+        preserveSymlinks: false
+      }
+    },
+    { apply: [Function: apply] },
+    MiniCssExtractPlugin {
+      _sortedModulesCache: WeakMap { <items unknown> },
+      options: {
+        filename: '[name].css',
+        ignoreOrder: false,
+        experimentalUseImportModule: undefined,
+        runtime: true,
+        chunkFilename: '[name].css'
+      },
+      runtimeOptions: {
+        insert: undefined,
+        linkType: 'text/css',
+        attributes: undefined
+      }
+    },
+    SuppressExtractedTextChunksWebpackPlugin {},
+    IndexHtmlWebpackPlugin {
+      options: {
+        indexPath: '/Users/jiangbo/code/jsbyexample/browser/angular/ng-rx/src/index.html',
+        outputPath: 'index.html',
+        baseHref: undefined,
+        entrypoints: [
+          [ 'runtime', true ],
+          [ 'polyfills', true ],
+          [ 'styles', false ],
+          [ 'vendor', true ],
+          [ 'main', true ]
+        ],
+        deployUrl: undefined,
+        sri: false,
+        cache: {
+          enabled: true,
+          basePath: '/Users/jiangbo/code/jsbyexample/browser/angular/ng-rx/.angular/cache',
+          path: '/Users/jiangbo/code/jsbyexample/browser/angular/ng-rx/.angular/cache/15.2.1'
+        },
+        postTransform: undefined,
+        optimization: {
+          scripts: false,
+          styles: { minify: false, inlineCritical: false },
+          fonts: { inline: false }
+        },
+        crossOrigin: 'none',
+        lang: undefined
+      },
+      plugins: [ [AsyncFunction (anonymous)], [AsyncFunction (anonymous)] ]
+    }
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.?(svg|html)$/,
+        resourceQuery: /\?ngResource/,
+        type: 'asset/source'
+      },
+      { test: /[/\\]rxjs[/\\]add[/\\].+\.js$/, sideEffects: true },
+      {
+        test: /\.[cm]?[tj]sx?$/,
+        resolve: { fullySpecified: false },
+        exclude: [
+          /[\\/]node_modules[/\\](?:core-js|@babel|tslib|web-animations-js|web-streams-polyfill|whatwg-url)[/\\]/
+        ],
+        use: [
+          {
+            loader: '/Users/jiangbo/code/jsbyexample/node_modules/.pnpm/@angular-devkit+build-angular@15.2.1_m7ue65ynttm2v7nplnh23wyx7a/node_modules/@angular-devkit/build-angular/src/babel/webpack-loader.js',
+            options: {
+              cacheDirectory: '/Users/jiangbo/code/jsbyexample/browser/angular/ng-rx/.angular/cache/15.2.1/babel-webpack',
+              aot: true,
+              optimize: false,
+              supportedBrowsers: [
+                'chrome 109',        'chrome 108',
+                'edge 109',          'edge 108',
+                'firefox 109',       'firefox 102',
+                'ios_saf 16.3',      'ios_saf 16.2',
+                'ios_saf 16.1',      'ios_saf 16.0',
+                'ios_saf 15.6',      'ios_saf 15.5',
+                'ios_saf 15.4',      'ios_saf 15.2-15.3',
+                'ios_saf 15.0-15.1', 'safari 16.3',
+                'safari 16.2',       'safari 16.1',
+                'safari 16.0',       'safari 15.6',
+                'safari 15.5',       'safari 15.4',
+                'safari 15.2-15.3',  'safari 15.1',
+                'safari 15'
+              ],
+              instrumentCode: undefined
+            }
+          }
+        ]
+      },
+      {
+        test: /\.[cm]?jsx?$/,
+        enforce: 'pre',
+        loader: '/Users/jiangbo/code/jsbyexample/node_modules/.pnpm/source-map-loader@4.0.1_webpack@5.75.0/node_modules/source-map-loader/dist/cjs.js',
+        options: { filterSourceMappingUrl: [Function: filterSourceMappingUrl] }
+      },
+      {
+        test: /\.[cm]?tsx?$/,
+        loader: '/Users/jiangbo/code/jsbyexample/node_modules/.pnpm/@ngtools+webpack@15.2.1_b6b2yjbjijnlkdi33kccgj2ide/node_modules/@ngtools/webpack/src/ivy/index.js',
+        exclude: [
+          /[\\/]node_modules[/\\](?:css-loader|mini-css-extract-plugin|webpack-dev-server|webpack)[/\\]/
+        ]
+      },
+      {
+        test: /\.(?:css)$/i,
+        rules: [
+          {
+            oneOf: [
+              {
+                use: [
+                  {
+                    loader: '/Users/jiangbo/code/jsbyexample/node_modules/.pnpm/mini-css-extract-plugin@2.7.2_webpack@5.75.0/node_modules/mini-css-extract-plugin/dist/loader.js'
+                  },
+                  {
+                    loader: '/Users/jiangbo/code/jsbyexample/node_modules/.pnpm/css-loader@6.7.3_webpack@5.75.0/node_modules/css-loader/dist/cjs.js',
+                    options: { url: false, sourceMap: true, importLoaders: 1 }
+                  },
+                  {
+                    loader: '/Users/jiangbo/code/jsbyexample/node_modules/.pnpm/postcss-loader@7.0.2_6jdsrmfenkuhhw3gx4zvjlznce/node_modules/postcss-loader/dist/cjs.js',
+                    options: {
+                      implementation: [Function],
+                      postcssOptions: [Function],
+                      sourceMap: true
+                    }
+                  }
+                ],
+                resourceQuery: /\?ngGlobalStyle/
+              },
+              {
+                use: [
+                  {
+                    loader: '/Users/jiangbo/code/jsbyexample/node_modules/.pnpm/css-loader@6.7.3_webpack@5.75.0/node_modules/css-loader/dist/cjs.js',
+                    options: {
+                      url: false,
+                      sourceMap: true,
+                      importLoaders: 1,
+                      exportType: 'string',
+                      esModule: false
+                    }
+                  },
+                  {
+                    loader: '/Users/jiangbo/code/jsbyexample/node_modules/.pnpm/postcss-loader@7.0.2_6jdsrmfenkuhhw3gx4zvjlznce/node_modules/postcss-loader/dist/cjs.js',
+                    options: {
+                      implementation: [Function],
+                      postcssOptions: [Function]
+                    }
+                  }
+                ],
+                resourceQuery: /\?ngResource/
+              }
+            ]
+          },
+          { use: [] }
+        ]
+      },
+      {
+        test: /\.(?:scss)$/i,
+        rules: [
+          {
+            oneOf: [
+              {
+                use: [
+                  {
+                    loader: '/Users/jiangbo/code/jsbyexample/node_modules/.pnpm/mini-css-extract-plugin@2.7.2_webpack@5.75.0/node_modules/mini-css-extract-plugin/dist/loader.js'
+                  },
+                  {
+                    loader: '/Users/jiangbo/code/jsbyexample/node_modules/.pnpm/css-loader@6.7.3_webpack@5.75.0/node_modules/css-loader/dist/cjs.js',
+                    options: { url: false, sourceMap: true, importLoaders: 1 }
+                  },
+                  {
+                    loader: '/Users/jiangbo/code/jsbyexample/node_modules/.pnpm/postcss-loader@7.0.2_6jdsrmfenkuhhw3gx4zvjlznce/node_modules/postcss-loader/dist/cjs.js',
+                    options: {
+                      implementation: [Function],
+                      postcssOptions: [Function],
+                      sourceMap: true
+                    }
+                  }
+                ],
+                resourceQuery: /\?ngGlobalStyle/
+              },
+              {
+                use: [
+                  {
+                    loader: '/Users/jiangbo/code/jsbyexample/node_modules/.pnpm/css-loader@6.7.3_webpack@5.75.0/node_modules/css-loader/dist/cjs.js',
+                    options: {
+                      url: false,
+                      sourceMap: true,
+                      importLoaders: 1,
+                      exportType: 'string',
+                      esModule: false
+                    }
+                  },
+                  {
+                    loader: '/Users/jiangbo/code/jsbyexample/node_modules/.pnpm/postcss-loader@7.0.2_6jdsrmfenkuhhw3gx4zvjlznce/node_modules/postcss-loader/dist/cjs.js',
+                    options: {
+                      implementation: [Function],
+                      postcssOptions: [Function]
+                    }
+                  }
+                ],
+                resourceQuery: /\?ngResource/
+              }
+            ]
+          },
+          {
+            use: [
+              {
+                loader: '/Users/jiangbo/code/jsbyexample/node_modules/.pnpm/resolve-url-loader@5.0.0/node_modules/resolve-url-loader/index.js',
+                options: { sourceMap: true }
+              },
+              {
+                loader: '/Users/jiangbo/code/jsbyexample/node_modules/.pnpm/sass-loader@13.2.0_sass@1.58.1+webpack@5.75.0/node_modules/sass-loader/dist/cjs.js',
+                options: {
+                  sourceMap: true,
+                  api: 'modern',
+                  implementation: SassWorkerImplementation {
+                    rebase: false,
+                    workers: [],
+                    availableWorkers: [],
+                    requests: Map(0) {},
+                    workerPath: '/Users/jiangbo/code/jsbyexample/node_modules/.pnpm/@angular-devkit+build-angular@15.2.1_m7ue65ynttm2v7nplnh23wyx7a/node_modules/@angular-devkit/build-angular/src/sass/worker.js',
+                    idCounter: 1,
+                    nextWorkerIndex: 0
+                  },
+                  webpackImporter: false,
+                  sassOptions: [Function: sassOptions]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        test: /\.(?:sass)$/i,
+        rules: [
+          {
+            oneOf: [
+              {
+                use: [
+                  {
+                    loader: '/Users/jiangbo/code/jsbyexample/node_modules/.pnpm/mini-css-extract-plugin@2.7.2_webpack@5.75.0/node_modules/mini-css-extract-plugin/dist/loader.js'
+                  },
+                  {
+                    loader: '/Users/jiangbo/code/jsbyexample/node_modules/.pnpm/css-loader@6.7.3_webpack@5.75.0/node_modules/css-loader/dist/cjs.js',
+                    options: { url: false, sourceMap: true, importLoaders: 1 }
+                  },
+                  {
+                    loader: '/Users/jiangbo/code/jsbyexample/node_modules/.pnpm/postcss-loader@7.0.2_6jdsrmfenkuhhw3gx4zvjlznce/node_modules/postcss-loader/dist/cjs.js',
+                    options: {
+                      implementation: [Function],
+                      postcssOptions: [Function],
+                      sourceMap: true
+                    }
+                  }
+                ],
+                resourceQuery: /\?ngGlobalStyle/
+              },
+              {
+                use: [
+                  {
+                    loader: '/Users/jiangbo/code/jsbyexample/node_modules/.pnpm/css-loader@6.7.3_webpack@5.75.0/node_modules/css-loader/dist/cjs.js',
+                    options: {
+                      url: false,
+                      sourceMap: true,
+                      importLoaders: 1,
+                      exportType: 'string',
+                      esModule: false
+                    }
+                  },
+                  {
+                    loader: '/Users/jiangbo/code/jsbyexample/node_modules/.pnpm/postcss-loader@7.0.2_6jdsrmfenkuhhw3gx4zvjlznce/node_modules/postcss-loader/dist/cjs.js',
+                    options: {
+                      implementation: [Function],
+                      postcssOptions: [Function]
+                    }
+                  }
+                ],
+                resourceQuery: /\?ngResource/
+              }
+            ]
+          },
+          {
+            use: [
+              {
+                loader: '/Users/jiangbo/code/jsbyexample/node_modules/.pnpm/resolve-url-loader@5.0.0/node_modules/resolve-url-loader/index.js',
+                options: { sourceMap: true }
+              },
+              {
+                loader: '/Users/jiangbo/code/jsbyexample/node_modules/.pnpm/sass-loader@13.2.0_sass@1.58.1+webpack@5.75.0/node_modules/sass-loader/dist/cjs.js',
+                options: {
+                  sourceMap: true,
+                  api: 'modern',
+                  implementation: SassWorkerImplementation {
+                    rebase: false,
+                    workers: [],
+                    availableWorkers: [],
+                    requests: Map(0) {},
+                    workerPath: '/Users/jiangbo/code/jsbyexample/node_modules/.pnpm/@angular-devkit+build-angular@15.2.1_m7ue65ynttm2v7nplnh23wyx7a/node_modules/@angular-devkit/build-angular/src/sass/worker.js',
+                    idCounter: 1,
+                    nextWorkerIndex: 0
+                  },
+                  webpackImporter: false,
+                  sassOptions: [Function: sassOptions]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        test: /\.(?:less)$/i,
+        rules: [
+          {
+            oneOf: [
+              {
+                use: [
+                  {
+                    loader: '/Users/jiangbo/code/jsbyexample/node_modules/.pnpm/mini-css-extract-plugin@2.7.2_webpack@5.75.0/node_modules/mini-css-extract-plugin/dist/loader.js'
+                  },
+                  {
+                    loader: '/Users/jiangbo/code/jsbyexample/node_modules/.pnpm/css-loader@6.7.3_webpack@5.75.0/node_modules/css-loader/dist/cjs.js',
+                    options: { url: false, sourceMap: true, importLoaders: 1 }
+                  },
+                  {
+                    loader: '/Users/jiangbo/code/jsbyexample/node_modules/.pnpm/postcss-loader@7.0.2_6jdsrmfenkuhhw3gx4zvjlznce/node_modules/postcss-loader/dist/cjs.js',
+                    options: {
+                      implementation: [Function],
+                      postcssOptions: [Function],
+                      sourceMap: true
+                    }
+                  }
+                ],
+                resourceQuery: /\?ngGlobalStyle/
+              },
+              {
+                use: [
+                  {
+                    loader: '/Users/jiangbo/code/jsbyexample/node_modules/.pnpm/css-loader@6.7.3_webpack@5.75.0/node_modules/css-loader/dist/cjs.js',
+                    options: {
+                      url: false,
+                      sourceMap: true,
+                      importLoaders: 1,
+                      exportType: 'string',
+                      esModule: false
+                    }
+                  },
+                  {
+                    loader: '/Users/jiangbo/code/jsbyexample/node_modules/.pnpm/postcss-loader@7.0.2_6jdsrmfenkuhhw3gx4zvjlznce/node_modules/postcss-loader/dist/cjs.js',
+                    options: {
+                      implementation: [Function],
+                      postcssOptions: [Function]
+                    }
+                  }
+                ],
+                resourceQuery: /\?ngResource/
+              }
+            ]
+          },
+          {
+            use: [
+              {
+                loader: '/Users/jiangbo/code/jsbyexample/node_modules/.pnpm/less-loader@11.1.0_less@4.1.3+webpack@5.75.0/node_modules/less-loader/dist/cjs.js',
+                options: {
+                  implementation: {
+                    node: [Function (anonymous)],
+                    color: [Function (anonymous)],
+                    atrule: [Function (anonymous)],
+                    detachedruleset: [Function (anonymous)],
+                    operation: [Function (anonymous)],
+                    dimension: [Function (anonymous)],
+                    unit: [Function (anonymous)],
+                    keyword: [Function (anonymous)],
+                    variable: [Function (anonymous)],
+                    property: [Function (anonymous)],
+                    ruleset: [Function (anonymous)],
+                    element: [Function (anonymous)],
+                    attribute: [Function (anonymous)],
+                    combinator: [Function (anonymous)],
+                    selector: [Function (anonymous)],
+                    quoted: [Function (anonymous)],
+                    expression: [Function (anonymous)],
+                    declaration: [Function (anonymous)],
+                    call: [Function (anonymous)],
+                    url: [Function (anonymous)],
+                    import: [Function (anonymous)],
+                    comment: [Function (anonymous)],
+                    anonymous: [Function (anonymous)],
+                    value: [Function (anonymous)],
+                    javascript: [Function (anonymous)],
+                    assignment: [Function (anonymous)],
+                    condition: [Function (anonymous)],
+                    paren: [Function (anonymous)],
+                    media: [Function (anonymous)],
+                    unicodedescriptor: [Function (anonymous)],
+                    negative: [Function (anonymous)],
+                    extend: [Function (anonymous)],
+                    variablecall: [Function (anonymous)],
+                    namespacevalue: [Function (anonymous)],
+                    mixin: [Object: null prototype] {
+                      call: [Function (anonymous)],
+                      definition: [Function (anonymous)]
+                    },
+                    createFromEnvironment: [Function: default_1],
+                    lesscHelper: {
+                      stylize: [Function: stylize],
+                      printUsage: [Function: printUsage]
+                    },
+                    PluginLoader: [Function: PluginLoader],
+                    fs: {
+                      appendFile: [Function: appendFile],
+                      appendFileSync: [Function: appendFileSync],
+                      access: [Function: access],
+                      accessSync: [Function: accessSync],
+                      chown: [Function (anonymous)],
+                      chownSync: [Function (anonymous)],
+                      chmod: [Function (anonymous)],
+                      chmodSync: [Function (anonymous)],
+                      close: [Function: close],
+                      closeSync: [Function: closeSync],
+                      copyFile: [Function: copyFile],
+                      copyFileSync: [Function: copyFileSync],
+                      cp: [Function: cp],
+                      cpSync: [Function: cpSync],
+                      createReadStream: [Function: createReadStream],
+                      createWriteStream: [Function: createWriteStream],
+                      exists: [Function: exists],
+                      existsSync: [Function: existsSync],
+                      fchown: [Function (anonymous)],
+                      fchownSync: [Function (anonymous)],
+                      fchmod: [Function (anonymous)],
+                      fchmodSync: [Function (anonymous)],
+                      fdatasync: [Function: fdatasync],
+                      fdatasyncSync: [Function: fdatasyncSync],
+                      fstat: [Function (anonymous)],
+                      fstatSync: [Function (anonymous)],
+                      fsync: [Function: fsync],
+                      fsyncSync: [Function: fsyncSync],
+                      ftruncate: [Function: ftruncate],
+                      ftruncateSync: [Function: ftruncateSync],
+                      futimes: [Function: futimes],
+                      futimesSync: [Function: futimesSync],
+                      lchown: [Function (anonymous)],
+                      lchownSync: [Function (anonymous)],
+                      lchmod: [Function (anonymous)],
+                      lchmodSync: [Function (anonymous)],
+                      link: [Function: link],
+                      linkSync: [Function: linkSync],
+                      lstat: [Function (anonymous)],
+                      lstatSync: [Function (anonymous)],
+                      lutimes: [Function: lutimes],
+                      lutimesSync: [Function: lutimesSync],
+                      mkdir: [Function: mkdir],
+                      mkdirSync: [Function: mkdirSync],
+                      mkdtemp: [Function: mkdtemp],
+                      mkdtempSync: [Function: mkdtempSync],
+                      open: [Function: open],
+                      openSync: [Function: openSync],
+                      opendir: [Function: opendir],
+                      opendirSync: [Function: opendirSync],
+                      readdir: [Function: readdir],
+                      readdirSync: [Function: readdirSync],
+                      read: [Function: read],
+                      readSync: [Function (anonymous)],
+                      readv: [Function: readv],
+                      readvSync: [Function: readvSync],
+                      readFile: [Function: readFile],
+                      readFileSync: [Function: readFileSync],
+                      readlink: [Function: readlink],
+                      readlinkSync: [Function: readlinkSync],
+                      realpath: [Function],
+                      realpathSync: [Function],
+                      rename: [Function: rename],
+                      renameSync: [Function: renameSync],
+                      rm: [Function: rm],
+                      rmSync: [Function: rmSync],
+                      rmdir: [Function: rmdir],
+                      rmdirSync: [Function: rmdirSync],
+                      stat: [Function (anonymous)],
+                      statSync: [Function (anonymous)],
+                      symlink: [Function: symlink],
+                      symlinkSync: [Function: symlinkSync],
+                      truncate: [Function: truncate],
+                      truncateSync: [Function: truncateSync],
+                      unwatchFile: [Function: unwatchFile],
+                      unlink: [Function: unlink],
+                      unlinkSync: [Function: unlinkSync],
+                      utimes: [Function: utimes],
+                      utimesSync: [Function: utimesSync],
+                      watch: [Function: watch],
+                      watchFile: [Function: watchFile],
+                      writeFile: [Function: writeFile],
+                      writeFileSync: [Function: writeFileSync],
+                      write: [Function: write],
+                      writeSync: [Function: writeSync],
+                      writev: [Function: writev],
+                      writevSync: [Function: writevSync],
+                      Dir: [class Dir],
+                      Dirent: [class Dirent],
+                      Stats: [Function: Stats],
+                      ReadStream: [Getter/Setter],
+                      WriteStream: [Getter/Setter],
+                      FileReadStream: [Getter/Setter],
+                      FileWriteStream: [Getter/Setter],
+                      _toUnixTimestamp: [Function: toUnixTimestamp],
+                      F_OK: 0,
+                      R_OK: 4,
+                      W_OK: 2,
+                      X_OK: 1,
+                      constants: [Object: null prototype],
+                      promises: [Getter],
+                      gracefulify: [Function: patch]
+                    },
+                    FileManager: [Function: FileManager],
+                    UrlFileManager: [Function: UrlFileManager],
+                    options: {
+                      javascriptEnabled: false,
+                      depends: false,
+                      compress: false,
+                      lint: false,
+                      paths: [],
+                      color: true,
+                      strictImports: false,
+                      insecure: false,
+                      rootpath: '',
+                      rewriteUrls: false,
+                      math: 1,
+                      strictUnits: false,
+                      globalVars: null,
+                      modifyVars: null,
+                      urlArgs: ''
+                    }
+                  },
+                  sourceMap: true,
+                  lessOptions: { javascriptEnabled: true, paths: [] }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    strictExportPresence: true,
+    parser: {
+      javascript: { requireContext: false, url: false, worker: false }
+    }
+  },
+  devServer: {
+    host: 'localhost',
+    port: 4200,
+    headers: { 'Access-Control-Allow-Origin': '*' },
+    historyApiFallback: {
+      index: '/index.html',
+      disableDotRule: true,
+      htmlAcceptHeaders: [ 'text/html', 'application/xhtml+xml' ],
+      rewrites: [ { from: /^(?!\/)\/.*/, to: [Function: to] } ]
+    },
+    setupExitSignals: false,
+    compress: false,
+    static: false,
+    server: 'http',
+    allowedHosts: undefined,
+    devMiddleware: { publicPath: '/', stats: false },
+    liveReload: true,
+    hot: false,
+    proxy: undefined,
+    webSocketServer: { options: { path: '/ng-cli-ws' } },
+    client: {
+      logging: 'info',
+      webSocketURL: 'auto://0.0.0.0:0/ng-cli-ws',
+      overlay: { errors: true, warnings: false }
+    }
+  },
+  mode: 'development',
+  devtool: false,
+  target: [ 'web', 'es2015' ],
+  profile: false,
+  resolve: {
+    roots: [ '/Users/jiangbo/code/jsbyexample/browser/angular/ng-rx' ],
+    extensions: [ '.ts', '.tsx', '.mjs', '.js' ],
+    symlinks: true,
+    modules: [
+      '/Users/jiangbo/code/jsbyexample/browser/angular/ng-rx',
+      'node_modules'
+    ],
+    mainFields: [ 'es2020', 'es2015', 'browser', 'module', 'main' ],
+    conditionNames: [ 'es2020', 'es2015', '...' ]
+  },
+  resolveLoader: { symlinks: true },
+  context: '/Users/jiangbo/code/jsbyexample/browser/angular/ng-rx',
+  entry: {
+    main: [
+      '/Users/jiangbo/code/jsbyexample/browser/angular/ng-rx/src/main.ts'
+    ],
+    polyfills: [ 'zone.js' ]
+  },
+  externals: [],
+  output: {
+    uniqueName: 'ng-rx',
+    hashFunction: 'xxhash64',
+    clean: true,
+    path: '/Users/jiangbo/code/jsbyexample/browser/angular/ng-rx/dist/ng-rx',
+    publicPath: '',
+    filename: '[name].js',
+    chunkFilename: '[name].js',
+    libraryTarget: undefined,
+    crossOriginLoading: false,
+    trustedTypes: 'angular#bundler',
+    scriptType: 'module'
+  },
+  watch: false,
+  watchOptions: { poll: undefined, followSymlinks: false, ignored: undefined },
+  snapshot: { module: { hash: false } },
+  performance: { hints: false },
+  ignoreWarnings: [
+    /Failed to parse source map from/,
+    /Add postcss as project dependency/,
+    /"@charset" must be the first rule in the file/
+  ],
+  experiments: { backCompat: false, syncWebAssembly: true, asyncWebAssembly: true },
+  infrastructureLogging: { debug: undefined, level: 'error' },
+  stats: {
+    all: false,
+    colors: true,
+    hash: true,
+    timings: true,
+    chunks: true,
+    builtAt: true,
+    warnings: true,
+    errors: true,
+    assets: true,
+    cachedAssets: true,
+    ids: true,
+    entrypoints: true
+  },
+  cache: {
+    type: 'filesystem',
+    profile: undefined,
+    cacheDirectory: '/Users/jiangbo/code/jsbyexample/browser/angular/ng-rx/.angular/cache/15.2.1/angular-webpack',
+    maxMemoryGenerations: 1,
+    name: '9eb530a2ad5d609df8cde7704a0954e87b448525'
+  },
+  optimization: {
+    minimizer: [],
+    moduleIds: 'deterministic',
+    chunkIds: 'named',
+    emitOnErrors: false,
+    runtimeChunk: 'single',
+    splitChunks: {
+      maxAsyncRequests: Infinity,
+      cacheGroups: {
+        default: { chunks: 'async', minChunks: 2, priority: 10 },
+        common: {
+          name: 'common',
+          chunks: 'async',
+          minChunks: 2,
+          enforce: true,
+          priority: 5
+        },
+        vendors: false,
+        defaultVendors: {
+          name: 'vendor',
+          chunks: [Function: chunks],
+          enforce: true,
+          test: /[\\/]node_modules[\\/]/
+        }
+      }
+    }
+  },
+  node: false
+}
+

@@ -1,0 +1,1 @@
+console.log('import-from-main.2.js');

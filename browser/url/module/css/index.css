@@ -1,0 +1,8 @@
+body {
+  background: red;
+  background-image: url(../../module/media/logo.svg);
+}
+
+.logo {
+  background-image:url(//xxx.com/lm-min.png)
+}

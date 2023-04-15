@@ -1,0 +1,24 @@
+{
+  "name": "@webpack-examples/public-path",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "build:issuer": "webpack -c webpack.config.issuer.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "css-loader": "3.4.2",
+    "file-loader": "4.3.0",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "2.3.0",
+    "postcss-loader": "4.2.0",
+    "svgo-loader": "^4.0.0",
+    "url-loader": "2.3.0",
+    "webpack": "5.64.1",
+    "webpack-cli": "^5.0.1"
+  }
+}

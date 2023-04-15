@@ -1,0 +1,14 @@
+{
+  "customizations": {
+    "codespaces": {
+      "repositories": {
+        "jiangbo0216/*": {
+          "permissions": "write-all"
+        },
+        "coach-i-wanna-learn/*": {
+          "permissions": "write-all"
+        }
+      }
+    }
+  }
+}

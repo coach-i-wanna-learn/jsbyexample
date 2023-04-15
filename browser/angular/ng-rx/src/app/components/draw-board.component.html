@@ -1,0 +1,21 @@
+<div class="menu">
+  <div class="button">画板</div>
+  <div class="button" (click)="reset()">重置</div>
+  <div class="button" (click)="downloadImage()">保存</div>
+</div>
+
+<div class="window" id="windowBox">
+  <div class="top" id="buttonBox">
+      <span class="red" id="close"></span>
+      <span class="yellow" id="minimize"></span>
+      <span class="green" id="maximize"></span>
+  </div>
+  <canvas #canvas width="500" height="500" ngModel>
+    <p>亲，换个浏览器吧，求求了</p>
+  </canvas>
+
+
+</div>
+
+
+<canvas #clock width="500" height="500" ngModel>
