@@ -1,0 +1,22 @@
+{
+  "name": "library-target",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "concurrently \"npm:build:*\"",
+    "build:undefined": "webpack",
+    "build:umd": "target=umd webpack",
+    "build:commonjs": "target=commonjs webpack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.80.0",
+    "webpack-cli": "^5.0.1"
+  },
+  "dependencies": {
+    "concurrently": "^7.6.0"
+  }
+}
