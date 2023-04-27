@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.2.1/dist/echarts.min.js"></script>
+</head>
+<body>
+  <div id="myChart" style="height: 100vh;"></div>
+
+  <script>
+    // Define your data
+    const data = [
+    151.2,141.4,126.3,126.5,117.7,119.9,110.6,115.2,107.8,116.3,117.3,117.4,113.8,119.5,118.1,117.3,111.1,118.9,115.2,119.8,111.1,113.9,121.7,173.7,206.1,140.8,110,117.4,113.4,119.6,111.1,116.2,111.3,115.7,116.1,115,110.9,115.1,112,114.6,109.9,114.9,111.2,121,126.5,129.2,117.1,116.3,109.1,112.8,111.9,117.4,108.4,112.5,111.5,121.9,123.9,119.1,113.3,119.1,117.5,118.1,111.9,116.9,112.4,115.7,113.5,119.9,117.1,120.7,116.7,121.6,120.6,122.9,114.2,118.8,110,114.6,109.2,115.6,112.7,117,111,117.2,110.5,116,110.3,117.7,110.4,115.6,119.9,121.5,116.1,122.1,118.1,150.5,151.5,110.6,106.9,132.5
+    ].map((data, idx) => ({
+      idx: idx,
+      time: data
+    }));
+
+    // Create a new ECharts instance
+    const myChart = echarts.init(document.getElementById('myChart'));
+
+    // Set the chart options
+    const options = {
+      xAxis: {
+        type: 'category',
+        data: data.map(item => item.idx),
+      },
+      yAxis: {
+        type: 'value',
+        name: 'Time (ms)',
+      },
+      series: [{
+        type: 'line',
+        data: data.map(item => item.time),
+        itemStyle: {
+          color: '#007bff',
+        },
+      }],
+    };
+
+    // Set the chart options and render the chart
+    myChart.setOption(options);
+  </script>
+</body>
+</html>

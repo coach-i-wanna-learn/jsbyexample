@@ -32,3 +32,10 @@ Python 2.7：Node Sass需要Python 2.7环境来编译。在大多数Linux发行�
 git rebase -i --root
 
 清空所有 commit
+
+创建一个新的 repo
+
+1. 创建文件夹
+2. 如果需要安装依赖，在 `pnpm-workspace.yaml` 更新 workspace 的规则
+3. cd 到第一步创建的文件夹，执行 `pnpm init`
+4. `pnpm i xx` 安装依赖

@@ -2,3 +2,4 @@ packages:
   - node/**
   - browser/**/**
   - redux-saga/**
+  - vite/**/**
